@@ -1,1 +1,7 @@
-console.log("Hello via Bun!");
+import { parseCliArgs } from "./cli";
+
+function main() {
+  parseCliArgs();
+}
+
+main();
