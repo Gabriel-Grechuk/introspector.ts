@@ -1,3 +1,14 @@
+export type SupportedDatabases = "postgresql";
+
+export type DatabaseDescrition = Record<
+  string,
+  {
+    type: SupportedDatabases;
+    url: string;
+  }
+>;
+
 export type Args = {
-  databases: Record<string, string>;
+  databases: DatabaseDescrition;
+  ssh: boolean;
 };
