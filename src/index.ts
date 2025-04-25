@@ -1,7 +1,8 @@
 import { parseCliArgs } from "./cli";
 
 function main() {
-  parseCliArgs();
+  const args = parseCliArgs();
+  console.log(args);
 }
 
 main();
