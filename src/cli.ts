@@ -1,5 +1,41 @@
-import type { Args } from "./types/cli.types";
 import { parseArgs } from "util";
+import type {
+  Args,
+  DatabaseDescrition,
+  SupportedDatabases,
+} from "./types/cli.types";
+import * as loggin from "./logging";
+
+function parseDatabaseString(input: string):
+  | {
+      databaseType: SupportedDatabases;
+      databaseName: string;
+      databaseUrl: string;
+    }
+  | undefined {
+  const normalizedInput = input.trim().toLowerCase();
+
+  // Parse for postgres.
+  if (normalizedInput.startsWith("postgresql://")) {
+    const dbName = normalizedInput.split("/")[3]?.split(/\?/)[0];
+    if (!dbName) {
+      loggin.warningLog(
+        `Database URL does not include the desired database name. It will be ignored: "${input}"`,
+      );
+      return;
+    }
+
+    return {
+      databaseName: dbName,
+      databaseType: "postgresql",
+      databaseUrl: normalizedInput,
+    };
+  }
+
+  loggin.warningLog(
+    `Invalid or unsupported database URL. It will be ignored: "${input}"`,
+  );
+}
 
 export function parseCliArgs(): Args {
   const { values } = parseArgs({
@@ -15,14 +51,25 @@ export function parseCliArgs(): Args {
         type: "boolean",
       },
     },
-    allowNegative: true,
     allowPositionals: true,
-    strict: true,
+    allowNegative: true,
   });
 
-  console.log("values:", values);
+  const databases: DatabaseDescrition = {};
+
+  for (const connectionString of values.database ?? []) {
+    const parsedDatabaseDescription = parseDatabaseString(connectionString);
+    if (!parsedDatabaseDescription) continue;
+    Object.assign(databases, {
+      [parsedDatabaseDescription.databaseName]: {
+        type: parsedDatabaseDescription.databaseType,
+        url: parsedDatabaseDescription.databaseUrl,
+      },
+    });
+  }
 
   return {
-    databases: {},
+    databases,
+    ssh: values.ssh ?? false,
   };
 }
