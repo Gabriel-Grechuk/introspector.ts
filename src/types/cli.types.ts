@@ -10,5 +10,6 @@ export type DatabaseDescrition = Record<
 
 export type Args = {
   databases: DatabaseDescrition;
+  outdir: string;
   ssh: boolean;
 };

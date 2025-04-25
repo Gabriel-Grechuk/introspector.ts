@@ -47,6 +47,11 @@ export function parseCliArgs(): Args {
         multiple: true,
       },
 
+      outdir: {
+        short: "o",
+        type: "string",
+      },
+
       ssh: {
         type: "boolean",
       },
@@ -70,6 +75,7 @@ export function parseCliArgs(): Args {
 
   return {
     databases,
+    outdir: values.outdir ?? "",
     ssh: values.ssh ?? false,
   };
 }
