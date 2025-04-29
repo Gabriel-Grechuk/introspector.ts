@@ -47,7 +47,7 @@ export function parseCliArgs(): Args {
         multiple: true,
       },
 
-      excude_table: {
+      exclude_table: {
         short: "e",
         type: "string",
         multiple: true,
