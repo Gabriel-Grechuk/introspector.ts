@@ -58,7 +58,7 @@ export function parseCliArgs(): Args {
         type: "string",
       },
 
-      ssh: {
+      ssl: {
         type: "boolean",
       },
     },
@@ -83,6 +83,6 @@ export function parseCliArgs(): Args {
     databases,
     exclude_tables: values.excude_table ?? [],
     outdir: values.outdir ?? "",
-    ssh: values.ssh ?? false,
+    ssl: values.ssl ?? false,
   };
 }

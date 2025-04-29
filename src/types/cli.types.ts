@@ -10,6 +10,7 @@ export type DatabaseDescrition = Record<
 
 export type Args = {
   databases: DatabaseDescrition;
+  exclude_tables: string[];
   outdir: string;
-  ssh: boolean;
+  ssl: boolean;
 };
