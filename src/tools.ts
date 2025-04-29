@@ -1,4 +1,5 @@
 import fs from "fs";
+import * as logging from "./logging";
 
 export function singularizeString(word: string): string {
   const endings: Record<string, string> = {
@@ -47,6 +48,6 @@ ${interfaceFields}}
 }
 
 export function writeFile(path: string, content: string): void {
-  console.log("Writing file:", path);
+  logging.infoLog("Writing file:", path);
   fs.writeFileSync(path, content);
 }
