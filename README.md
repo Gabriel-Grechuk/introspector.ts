@@ -26,8 +26,7 @@ Example:
 ```
 
 ```bash
-./introspector-t
-s --database "postgres://user:password@host:port/database_to_introspect" --database "postgres://user:password@host:port/another_database_to_introspect" --exclude_table "_prisma_migrations" --exclude_table "ignore_this_other_table" --outdir ./
+./introspector-ts --database "postgres://user:password@host:port/database_to_introspect" --database "postgres://user:password@host:port/another_database_to_introspect" --exclude_table "_prisma_migrations" --exclude_table "ignore_this_other_table" --outdir ./
 ```
 
 ### Args
