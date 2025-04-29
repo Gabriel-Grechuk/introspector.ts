@@ -42,3 +42,7 @@ export function warningLog(...msg: unknown[]) {
 export function errorLog(...msg: unknown[]) {
   console.log(`[ ${format("ERROR", ["bold", "white", "bg_red"])} ]:`, ...msg);
 }
+
+export function queryLog(...msg: unknown[]) {
+  console.log(`[ ${format("QUERY", ["bold", "blue"])} ]:`, ...msg);
+}

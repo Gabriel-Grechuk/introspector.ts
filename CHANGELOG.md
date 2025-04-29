@@ -4,7 +4,8 @@
 
 ### Added
 
-- [#2](https://github.com/Gabriel-Grechuk/introspector.ts/pull/2) - Basic bun setup and simple CLI implementation.
+- [#4](https://github.com/Gabriel-Grechuk/introspector.ts/issues/4) - Create the Postgres implementation.
+- [#1](https://github.com/Gabriel-Grechuk/introspector.ts/issues/1) - Basic bun setup and simple CLI implementation.
   - Mise config
   - Basic bun setup
   - Build script
