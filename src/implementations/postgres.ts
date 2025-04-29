@@ -51,10 +51,10 @@ function postgresTypeInference(type_str: string): string {
   else return type_str;
 }
 
-export async function getPostgresDatabaseSchema(args: {
+export async function getPostgresDatabasesSchema(args: {
   databases: Record<string, knex.Knex>;
   tablesToIgnore: string[];
-}): Promise<Record<string, string[]>> {
+}): Promise<Record<string, Record<string, Record<string, string>>>> {
   const dbTables: Record<string, any> = {};
 
   for (const db of Object.keys(args.databases)) {
