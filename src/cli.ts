@@ -47,6 +47,12 @@ export function parseCliArgs(): Args {
         multiple: true,
       },
 
+      excude_table: {
+        short: "e",
+        type: "string",
+        multiple: true,
+      },
+
       outdir: {
         short: "o",
         type: "string",
@@ -75,6 +81,7 @@ export function parseCliArgs(): Args {
 
   return {
     databases,
+    exclude_tables: values.excude_table ?? [],
     outdir: values.outdir ?? "",
     ssh: values.ssh ?? false,
   };
