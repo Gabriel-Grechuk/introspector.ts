@@ -37,4 +37,4 @@ Example:
 
 `--outdir` (`-o`): Specify where the interfaces files should be written. You can specify only one directory. The default is `./`.
 
-`--ssh`: Specify if the connection should ignore the SSL validation. Thy it if you face any SSL related problems, but keep in mind that it may be unsafe.
+`--ssh`: Specify if the connection should ignore the SSL validation. Try it if you face any SSL related problems, but keep in mind that it may be unsafe.
