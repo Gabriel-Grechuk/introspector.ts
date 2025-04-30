@@ -61,7 +61,7 @@ ${loggin.format("--outdir", ["blue"])} (${loggin.format("-o", ["blue"])}):
     one directory. The default is ./.
 
 ${loggin.format("--ssl", ["blue"])}:
-    Specify if the connection should ignore the SSL validation. Thy it if you
+    Specify if the connection should ignore the SSL validation. Try it if you
     face any SSL related problems, but keep in mind that it may be unsafe.
 `,
   );
